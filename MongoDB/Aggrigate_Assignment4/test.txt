@@ -63,3 +63,81 @@ Q -13 : Write Mongo query to retrieve the orders grouped by customer_id with the
 Ans: db.orders.aggregate([
   { $group: { _id: "$customer_id", maxTotal: { $max: "$total" } } }
 ]);
+
+
+
+
+Q-14: Assess the impact of RAM capacity on laptop prices and ratings. Group laptops by RAM capacity and analyze the average price and rating for each group. Identify any significant trends or outliers.
+
+Ans: db.laptops.aggregate([{$group: {_id: "$ram_memory",averagePrice: { $avg: "$Price" },averageRating: { $avg: "$Rating" },count: { $sum: 1 }} },{$sort: { _id: 1 }}
+]);
+
+
+Q-15: Investigate the price and rating distribution for gaming laptops. Identify which brands are leading in the gaming laptop market by comparing the average price, rating, GPU type, and RAM capacity for laptops categorized as gaming.
+
+Ans: db.laptops.aggregate([
+  // Match stage to filter gaming laptops
+  {
+    $match: {
+      "gpu_type": "dedicated" // Assuming gaming laptops have dedicated GPUs
+    }
+  },
+  // Group stage to calculate average price and rating for each brand
+  {
+    $group: {
+      _id: {
+        brand: "$brand",
+        gpu_type: "$gpu_type",
+        ram_memory: "$ram_memory"
+      },
+      averagePrice: { $avg: "$Price" },
+      averageRating: { $avg: "$Rating" },
+      count: { $sum: 1 }
+    }
+  },
+  // Sort stage to arrange the results by brand and RAM capacity
+  {
+    $sort: { "_id.brand": 1, "_id.ram_memory": 1 }
+  }
+]);
+
+Q-16: Analyze the warranty periods offered by different brands and their correlation with laptop prices and ratings. Identify any patterns or insights regarding how warranty periods influence consumer ratings and pricing strategies.
+
+Ans: db.laptops.aggregate([
+  // Group stage to calculate average price and rating for each brand and warranty period
+  {
+    $group: {
+      _id: {
+        brand: "$brand",
+        year_of_warranty: "$year_of_warranty"
+      },
+      averagePrice: { $avg: "$Price" },
+      averageRating: { $avg: "$Rating" },
+      count: { $sum: 1 }
+    }
+  },
+  // Sort stage to arrange the results by brand and warranty period
+  {
+    $sort: { "_id.brand": 1, "_id.year_of_warranty": 1 }
+  }
+]);
+
+
+Q-17: Examine the relationship between processor brand (Intel, AMD, Apple) and laptop price, rating, and primary storage capacity. Group the laptops by processor brand and compare their average price, rating, and storage statistics to identify key differences.
+
+Ans: db.laptops.aggregate([
+  // Group stage to calculate average price, rating, and primary storage capacity for each processor brand
+  {
+    $group: {
+      _id: "$processor_brand",
+      averagePrice: { $avg: "$Price" },
+      averageRating: { $avg: "$Rating" },
+      averagePrimaryStorage: { $avg: "$primary_storage_capacity" },
+      count: { $sum: 1 }
+    }
+  },
+  // Sort stage to arrange the results by processor brand
+  {
+    $sort: { "_id": 1 }
+  }
+]);
