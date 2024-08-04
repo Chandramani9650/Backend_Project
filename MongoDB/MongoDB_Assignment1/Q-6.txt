@@ -1,0 +1,4 @@
+Q-6: What are MongoDB Compass and MongoDB Shell used for?
+Ans:- MongoDB Compass: Best for users who prefer a graphical interface for database management and data visualization.
+MongoDB Shell: Ideal for users comfortable with the command line, requiring powerful scripting and administrative capabilities.
+

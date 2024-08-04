@@ -1,0 +1,7 @@
+Q - 5:- What is BSON? What is the difference between BSON and JSON?
+Ans:- In MongoDB, we write in JSON format only but behind the scene data is stored 
+in BSON (Binary JSON) format, a binary representation of JSON. 
+By utilizing BSON, MongoDB can achieve higher read and write speeds, 
+reduced storage requirements, and improved data manipulation capabilities, 
+making it well-suited for handling large and complex datasets while 
+maintaining performance efficiency.

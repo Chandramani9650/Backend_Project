@@ -1,0 +1,5 @@
+Q-7: How to create collections in MongoDB?
+Ans:-> 1- Collections are created implicitly when you insert the first document.
+db.newCollection.insertOne({ key: "value" })
+2 - Use the createCollection method to explicitly create a collection.
+db.createCollection("newCollection")

@@ -1,0 +1,4 @@
+Q-4: What are collections and documents in a MongoDB database?
+Ans:- Document ⇒ Each object in which the data is stored is called document.
+Collection ⇒ Group of similar Documents.
+Database ⇒ Group of Collections.

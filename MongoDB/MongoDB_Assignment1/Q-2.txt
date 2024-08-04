@@ -1,0 +1,18 @@
+Q-2:- What is the difference between SQL and NoSQL databases?
+Ans:- SQL Vs. NoSQL
+SQL: 
+Structure: Relational databases with predefined schema.
+Data Model: Tables with rows and columns.
+Query Language: SQL (Structured Query Language).
+Scalability: Vertical scalability (adding more power to the existing machine).
+Consistency: ACID (Atomicity, Consistency, Isolation, Durability) compliance.
+Examples: MySQL, PostgreSQL, Oracle, SQL Server.
+Use Cases: Complex queries, transactional applications, structured data.
+NoSQL:
+Structure: Non-relational databases with dynamic schema.
+Data Model: Various models such as document, key-value, column-family, and graph.
+Query Language: Varies by database (e.g., JSON queries for MongoDB, CQL for Cassandra).
+Scalability: Horizontal scalability (adding more servers).
+Consistency: BASE (Basically Available, Soft state, Eventual consistency) compliance.
+Examples: MongoDB, Redis, Cassandra, Neo4j.
+Use Cases: Real-time web apps, unstructured/semi-structured data, big data, distributed data systems.

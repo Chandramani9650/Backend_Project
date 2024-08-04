@@ -1,0 +1,13 @@
+Q-11:- What is $set in MongoDB?
+Ans: In MongoDB, $set is an update operator used within update operations to modify the values of existing fields or add new fields to a document. It allows you to update specific fields without replacing the entire document. Here’s how $set works:
+example :Updating Existing Fields:
+db.collection.updateOne(
+  { _id: ObjectId("document_id") },
+  { $set: { key: "new_value" } }
+)
+
+Adding New Fields:
+db.collection.updateOne(
+  { _id: ObjectId("document_id") },
+  { $set: { newKey: "value" } }
+)

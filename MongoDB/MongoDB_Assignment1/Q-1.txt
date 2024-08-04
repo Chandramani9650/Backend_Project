@@ -1,0 +1,14 @@
+Q-1:- What is a NoSQL Database, and explain the types of NoSQL database?
+Ans:- It stands for 'Not a Structured Query Language' NoSQL databases are a category of database management systems that do not use the traditional relational database structure. They are designed to handle large volumes of data, provide flexible data models, and support high performance and scalability. 
+Types of NoSQL Databases
+1.1: Document-Oriented Databases:
+
+Description: Store data as documents, typically in JSON, BSON, or XML formats. Each document contains a set of key-value pairs.
+Examples: MongoDB, CouchDB
+Use Cases: Content management systems, blogging platforms, e-commerce applications.
+Key-Value Stores:
+
+Description: Store data as a collection of key-value pairs. They are highly efficient for simple lookups.
+Examples: Redis, DynamoDB, Riak
+Use Cases: Caching, session management, user preferences storage.
+Column-Family Stores:

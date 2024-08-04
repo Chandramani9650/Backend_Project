@@ -1,0 +1,190 @@
+Q-1:- What is a NoSQL Database, and explain the types of NoSQL database?
+Ans:- It stands for 'Not a Structured Query Language' NoSQL databases are a category of database management systems that do not use the traditional relational database structure. They are designed to handle large volumes of data, provide flexible data models, and support high performance and scalability. 
+Types of NoSQL Databases
+1.1: Document-Oriented Databases:
+
+Description: Store data as documents, typically in JSON, BSON, or XML formats. Each document contains a set of key-value pairs.
+Examples: MongoDB, CouchDB
+Use Cases: Content management systems, blogging platforms, e-commerce applications.
+Key-Value Stores:
+
+Description: Store data as a collection of key-value pairs. They are highly efficient for simple lookups.
+Examples: Redis, DynamoDB, Riak
+Use Cases: Caching, session management, user preferences storage.
+Column-Family Stores:
+.........................................................
+
+Q-2:- What is the difference between SQL and NoSQL databases?
+Ans:- SQL Vs. NoSQL
+SQL: 
+Structure: Relational databases with predefined schema.
+Data Model: Tables with rows and columns.
+Query Language: SQL (Structured Query Language).
+Scalability: Vertical scalability (adding more power to the existing machine).
+Consistency: ACID (Atomicity, Consistency, Isolation, Durability) compliance.
+Examples: MySQL, PostgreSQL, Oracle, SQL Server.
+Use Cases: Complex queries, transactional applications, structured data.
+NoSQL:
+Structure: Non-relational databases with dynamic schema.
+Data Model: Various models such as document, key-value, column-family, and graph.
+Query Language: Varies by database (e.g., JSON queries for MongoDB, CQL for Cassandra).
+Scalability: Horizontal scalability (adding more servers).
+Consistency: BASE (Basically Available, Soft state, Eventual consistency) compliance.
+Examples: MongoDB, Redis, Cassandra, Neo4j.
+Use Cases: Real-time web apps, unstructured/semi-structured data, big data, distributed data systems.
+...........................................................
+
+Q-3:- How to choose between MongoDB and MySQL based on your requirements?
+Ans:- Scalability, flexible schema, performance & Use cases
+Advantages of MongoDB:
+
+Schema-less: Flexible and easier to adapt to changing requirements.
+Document-oriented: Natural fit for JSON data, often used in web applications.
+High availability with replica sets and horizontal scaling with sharding.
+Disadvantages of MongoDB:
+
+Limited support for complex transactions compared to SQL.
+May require more storage due to denormalized data.
+MySQL
+When to Choose MySQL:
+
+Structured Data:
+
+Your data model is well-defined and structured.
+Schema is stable with well-understood relationships between data entities.
+ACID Transactions:
+
+Need strong consistency and complex transactions.
+Applications requiring multi-row transactions, such as financial applications.
+Performance:
+
+Optimized for read-heavy applications.
+Complex query requirements, including joins and aggregations.
+Use Cases:
+
+E-commerce platforms, banking systems, data warehousing.
+Advantages of MySQL:
+
+Mature and widely used: Strong community and extensive support.
+ACID compliance: Ensures data integrity and consistency.
+Efficient for complex queries and transactional operations.
+Disadvantages of MySQL:
+
+Less flexible schema changes.
+Vertical scaling limits and potential performance bottlenecks with very large datasets.
+
+...............................................
+
+Q-4: What are collections and documents in a MongoDB database?
+Ans:- Document ⇒ Each object in which the data is stored is called document.
+Collection ⇒ Group of similar Documents.
+Database ⇒ Group of Collections.
+
+......................................
+
+
+Q - 5:- What is BSON? What is the difference between BSON and JSON?
+Ans:- In MongoDB, we write in JSON format only but behind the scene data is stored 
+in BSON (Binary JSON) format, a binary representation of JSON. 
+By utilizing BSON, MongoDB can achieve higher read and write speeds, 
+reduced storage requirements, and improved data manipulation capabilities, 
+making it well-suited for handling large and complex datasets while 
+maintaining performance efficiency.
+
+.................................................................
+
+
+Q-6: What are MongoDB Compass and MongoDB Shell used for?
+Ans:- MongoDB Compass: Best for users who prefer a graphical interface for database management and data visualization.
+MongoDB Shell: Ideal for users comfortable with the command line, requiring powerful scripting and administrative capabilities.
+
+....................................................
+
+Q-7: How to create collections in MongoDB?
+Ans:-> 1- Collections are created implicitly when you insert the first document.
+db.newCollection.insertOne({ key: "value" })
+2 - Use the createCollection method to explicitly create a collection.
+db.createCollection("newCollection")
+
+...............................................
+
+Q-8:- What is the difference between insertMany and insertOne?
+Ans:- insertOne:  Inserts a single document into a collection.
+ db.collection.insertOne({ key1: "value1", key2: "value2" })
+example: db.users.insertOne({ name: "Alice", age: 30, email: "alice@example.com" })
+ 
+ insertMany: Inserts multiple documents into a collection in a single operation.
+ db.collection.insertMany([{ key1: "value1" }, { key2: "value2" }])
+example:db.users.insertMany([
+  { name: "Bob", age: 25, email: "bob@example.com" },
+  { name: "Carol", age: 28, email: "carol@example.com" }
+])
+ 
+.....................................
+
+Q-9:- What is the difference between deleteOne and deleteMany?
+Ans:- deleteOne:Deletes a single document that matches the specified filter.
+db.collection.deleteOne({ key: "value" })
+example: db.users.deleteOne({ name: "Alice" })
+
+deleteMany: Deletes all documents that match the specified filter.
+db.collection.deleteMany({ key: "value" })
+example: db.users.deleteMany({ age: { $lt: 25 } })
+
+
+.............................................
+
+Q-10:- How to read data in MongoDB? What is the difference between find and findOne?
+Ans:- To read data from MongoDB, primarily use the find() and findOne() methods.
+find(): Retrieves multiple documents from a collection that match the specified query criteria.
+db.collection.find(query, projection)
+example: db.users.find(), 
+// Find documents where 'age' is greater than 25
+db.users.find({ age: { $gt: 25 } })
+// Find documents and project only 'name' and 'email'
+db.users.find({}, { name: 1, email: 1 })
+
+findOne():Retrieves a single document from a collection that matches the specified query criteria.
+db.collection.findOne(query, projection)
+example: // Find the first document in the 'users' collection
+db.users.findOne()
+
+// Find a document where 'age' is exactly 30
+db.users.findOne({ age: 30 })
+
+// Find a document and project only 'name' and 'email'
+db.users.findOne({}, { name: 1, email: 1 })
+
+
+.......................................................
+
+Q-11:- What is $set in MongoDB?
+Ans: In MongoDB, $set is an update operator used within update operations to modify the values of existing fields or add new fields to a document. It allows you to update specific fields without replacing the entire document. Here’s how $set works:
+example :Updating Existing Fields:
+db.collection.updateOne(
+  { _id: ObjectId("document_id") },
+  { $set: { key: "new_value" } }
+)
+
+Adding New Fields:
+db.collection.updateOne(
+  { _id: ObjectId("document_id") },
+  { $set: { newKey: "value" } }
+)
+
+...........................................................
+
+Q-12:- How to filter data using MongoDB?
+Ans:- Find documents where the status field equals "active"
+db.collection.find({ status: "active" })
+Find documents where the age field is greater than 30:
+db.collection.find({ age: { $gt: 30 } })
+Find documents where the score field is less than or equal to 100:
+db.collection.find({ score: { $lte: 100 } })
+Find documents where age is greater than 25 and gender is "female":
+db.collection.find({ age: { $gt: 25 }, gender: "female" })
+Find documents where status is "active" or role is "admin":
+db.collection.find({ $or: [ { status: "active" }, { role: "admin" } ] })
+Array Operators
+Find documents where the tags array contains "mongodb":
+db.collection.find({ tags: "mongodb" })

@@ -1,0 +1,14 @@
+Q-12:- How to filter data using MongoDB?
+Ans:- Find documents where the status field equals "active"
+db.collection.find({ status: "active" })
+Find documents where the age field is greater than 30:
+db.collection.find({ age: { $gt: 30 } })
+Find documents where the score field is less than or equal to 100:
+db.collection.find({ score: { $lte: 100 } })
+Find documents where age is greater than 25 and gender is "female":
+db.collection.find({ age: { $gt: 25 }, gender: "female" })
+Find documents where status is "active" or role is "admin":
+db.collection.find({ $or: [ { status: "active" }, { role: "admin" } ] })
+Array Operators
+Find documents where the tags array contains "mongodb":
+db.collection.find({ tags: "mongodb" })

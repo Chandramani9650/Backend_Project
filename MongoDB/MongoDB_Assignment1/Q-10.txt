@@ -1,0 +1,20 @@
+Q-10:- How to read data in MongoDB? What is the difference between find and findOne?
+Ans:- To read data from MongoDB, primarily use the find() and findOne() methods.
+find(): Retrieves multiple documents from a collection that match the specified query criteria.
+db.collection.find(query, projection)
+example: db.users.find(), 
+// Find documents where 'age' is greater than 25
+db.users.find({ age: { $gt: 25 } })
+// Find documents and project only 'name' and 'email'
+db.users.find({}, { name: 1, email: 1 })
+
+findOne():Retrieves a single document from a collection that matches the specified query criteria.
+db.collection.findOne(query, projection)
+example: // Find the first document in the 'users' collection
+db.users.findOne()
+
+// Find a document where 'age' is exactly 30
+db.users.findOne({ age: 30 })
+
+// Find a document and project only 'name' and 'email'
+db.users.findOne({}, { name: 1, email: 1 })

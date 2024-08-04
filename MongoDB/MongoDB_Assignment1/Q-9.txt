@@ -1,0 +1,8 @@
+Q-9:- What is the difference between deleteOne and deleteMany?
+Ans:- deleteOne:Deletes a single document that matches the specified filter.
+db.collection.deleteOne({ key: "value" })
+example: db.users.deleteOne({ name: "Alice" })
+
+deleteMany: Deletes all documents that match the specified filter.
+db.collection.deleteMany({ key: "value" })
+example: db.users.deleteMany({ age: { $lt: 25 } })

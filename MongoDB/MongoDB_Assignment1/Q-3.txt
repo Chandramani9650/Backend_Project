@@ -1,0 +1,39 @@
+Q-3:- How to choose between MongoDB and MySQL based on your requirements?
+Ans:- Scalability, flexible schema, performance & Use cases
+Advantages of MongoDB:
+
+Schema-less: Flexible and easier to adapt to changing requirements.
+Document-oriented: Natural fit for JSON data, often used in web applications.
+High availability with replica sets and horizontal scaling with sharding.
+Disadvantages of MongoDB:
+
+Limited support for complex transactions compared to SQL.
+May require more storage due to denormalized data.
+MySQL
+When to Choose MySQL:
+
+Structured Data:
+
+Your data model is well-defined and structured.
+Schema is stable with well-understood relationships between data entities.
+ACID Transactions:
+
+Need strong consistency and complex transactions.
+Applications requiring multi-row transactions, such as financial applications.
+Performance:
+
+Optimized for read-heavy applications.
+Complex query requirements, including joins and aggregations.
+Use Cases:
+
+E-commerce platforms, banking systems, data warehousing.
+Advantages of MySQL:
+
+Mature and widely used: Strong community and extensive support.
+ACID compliance: Ensures data integrity and consistency.
+Efficient for complex queries and transactional operations.
+Disadvantages of MySQL:
+
+Less flexible schema changes.
+Vertical scaling limits and potential performance bottlenecks with very large datasets.
+
